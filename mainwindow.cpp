@@ -3,8 +3,6 @@
 #include "directsimul.h"
 #include <QtWidgets>
 #include <QRect>
-/*#include <QPainter>
-#include <QPaintEvent>*/
 #include <cmath>
 #include "processing.h"
 #ifdef Q_OS_WIN
@@ -21,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	setupUi(this);
 	initTable();
 	connect(show_bdd_button, SIGNAL(clicked()), this, SLOT(popupInvoc()));
+	connect(simulation, SIGNAL(clicked()), this, SLOT(popupInvocDirectSimul()));
 	connect(start_measures, SIGNAL(clicked()), this, SLOT(start_measuring()));
 	connect(gradient_slide, SIGNAL(sliderReleased()), this, SLOT(gradientDialModify()));
 	connect(gradient_slide, SIGNAL(sliderMoved(int)), this, SLOT(gradientDialModify()));
