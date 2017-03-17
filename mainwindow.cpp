@@ -40,8 +40,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	paintEvent(&e);*/
 }
 void MainWindow::closeEvent(QCloseEvent *event) {
-	QMessageBox::StandardButton resBtn = QMessageBox::question( this, "APP_NAME",
-																tr("Are you sure?\n"),
+	QMessageBox::StandardButton resBtn = QMessageBox::question( this, "Quitter?",
+																tr("Êtes-vous sûr de vouloir quitter?\n"),
 																QMessageBox::No | QMessageBox::Yes,
 																QMessageBox::Yes);
 	if (resBtn != QMessageBox::Yes) {
