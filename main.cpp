@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 	MainWindow *main_win = new MainWindow();
-	QPixmap splashImage("Kart_splash_small.png");
+	QPixmap splashImage("C:\\Users\\Tentyfire\\Documents\\GitHub\\IHM\\Kart_splash_small.png");
 	customSplashScreen* splash = new customSplashScreen(splashImage);
 	splash->setMessageRect(QRect(150, 50, 415, 14), Qt::AlignLeft); // Setting the message position.
 
