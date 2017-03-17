@@ -593,18 +593,6 @@
      </widget>
     </item>
    </layout>
-   <zorder>layoutWidget</zorder>
-   <zorder>show_bdd_button</zorder>
-   <zorder>groupBox</zorder>
-   <zorder>measures</zorder>
-   <zorder>progressBar</zorder>
-   <zorder>progressLabel</zorder>
-   <zorder>stop_measures</zorder>
-   <zorder>start_measures</zorder>
-   <zorder>groupBox_3</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>simulation</zorder>
-   <zorder>erase_point</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -626,6 +614,7 @@
      <addaction name="new_custom_data"/>
     </widget>
     <addaction name="new_data"/>
+    <addaction name="open"/>
     <addaction name="separator"/>
     <addaction name="save"/>
     <addaction name="save_as"/>
@@ -673,6 +662,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="open">
+   <property name="text">
+    <string>Ouvrir...</string>
    </property>
   </action>
  </widget>

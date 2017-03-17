@@ -5,6 +5,7 @@
 #include <QRect>
 #include <cmath>
 #include <QCloseEvent>
+#include <QFile>
 #include "processing.h"
 #ifdef Q_OS_WIN
 #include <windows.h> // for Sleep
@@ -33,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(save_as,SIGNAL(triggered()),this,SLOT(saving_as()));
 	connect(add_point,SIGNAL(clicked()),this,SLOT(addPoint()));
 	connect(erase_point, SIGNAL(clicked()), this, SLOT(erasePoint()));
+	connect(open, SIGNAL(triggered()), this, SLOT(openFile()));
 	taches_progress = 1;
 	selected_gradiant_unit = 1;
 	saved = 0;
@@ -48,6 +50,25 @@ void MainWindow::closeEvent(QCloseEvent *event) {
 		event->ignore();
 	} else {
 		event->accept();
+	}
+}
+void MainWindow::openFile(){
+	file_opened.setFileName(QFileDialog::getOpenFileName(this, tr("Ouvrir..."), QDir::homePath(), "Fichiers CSV (*.csv);;Tout les fichiers (*.*)"));
+	QTextStream in(&file_opened);
+	file_opened.open(QIODevice::ReadOnly);
+	bool first_line_done = false;
+	int line_treated = 0;
+	while (!in.atEnd()) {
+		if(first_line_done){
+			QString line = in.readLine();
+			QStringList line_columns = line.split(";");
+			addCustomPoint(line_treated, line_columns.at(0), line_columns.at(1));
+			line_treated++;
+		}
+		else{
+			first_line_done = true;
+			line_treated++;
+		}
 	}
 }
 QTableWidgetItem* MainWindow::newItem(const QString& s){
@@ -81,6 +102,18 @@ int MainWindow::scan_table_points(double pointToScan){
 		return 1;
 	}
 	return 1;
+}
+void MainWindow::addCustomPoint(int numLine, QString point_pos, QString gradient_pos){
+	Qt::SortOrder the_order = measures->horizontalHeader()->sortIndicatorOrder();
+	int the_column = measures->horizontalHeader()->sortIndicatorSection();
+	measures->setRowCount(numLine);
+	measures->setSortingEnabled(false);
+	measures->setRowHeight(numLine, 22);
+	measures->setItem(numLine-1, 0, newItem(point_pos));
+	measures->setItem(numLine-1, 1, newItem(gradient_pos));
+	measures->repaint();
+	measures->setSortingEnabled(true);
+	measures->sortByColumn(the_column, the_order);
 }
 void MainWindow::addPoint(){
 	if(point->value() > distance->value()){
