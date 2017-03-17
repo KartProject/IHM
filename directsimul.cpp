@@ -5,8 +5,11 @@ DirectSimul::DirectSimul(QWidget *parent) :
 	QWidget(parent)
 {
 	setupUi(this);
-	calculation();
 	distance_to_do = 0;
+	total_distance = 0;
+	refresh_time = 0;
+	connect(start, SIGNAL(clicked()), this, SLOT(start_measures()));
+	//connect()
 }
 void DirectSimul::start_measures(){
 	if(start->isEnabled()){
@@ -16,18 +19,23 @@ void DirectSimul::start_measures(){
 void DirectSimul::calculation(){
 	if(progressBar->value() < 100){
 		label_3->setText(QString("%1").arg(gradiant->value()));
-		label_4->setText(QString("%1").arg(slider->value()));
 		refresh_time = 0;
-		distance_to_do = (slider->value() * 25)/;
-		QTimer::singleShot(10, this, SLOT(calculation()));
-		QTimer::singleShot(200, this, SLOT(calculation()));
+		total_distance = total_distance + ((slider->value() * 25)/18000);
+		distance_to_do = (((double)slider->value() * 100.0)/18000.0);
+		QTimer::singleShot(10, this, SLOT(refreshState()));
 	}
 	else{
-		progressBar->valueChanged(0);
+		progressBar->setValue(0);
 	}
 }
 void DirectSimul::refreshState(){
-	if(refresh_time <= 20){
-
+	if(refresh_time < 20 && progressBar->value() < 100){
+		label_4->setText(QString("%1").arg(distance_to_do/20.0 + label_4->text().toDouble()));
+		refresh_time++;
+		progressBar->setValue(round((label_4->text().toDouble()/distance->value())*100.0));
+		QTimer::singleShot(10, this, SLOT(refreshState()));
+	}
+	else if(progressBar->value() < 100){
+		calculation();
 	}
 }

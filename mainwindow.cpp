@@ -4,10 +4,12 @@
 #include <QtWidgets>
 #include <QRect>
 #include <cmath>
+#include <QCloseEvent>
 #include "processing.h"
 #ifdef Q_OS_WIN
 #include <windows.h> // for Sleep
 #endif
+
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent)
@@ -36,6 +38,17 @@ MainWindow::MainWindow(QWidget *parent) :
 	saved = 0;
 	/*QPaintEvent e(QRect(5,5,500,500));
 	paintEvent(&e);*/
+}
+void MainWindow::closeEvent(QCloseEvent *event) {
+	QMessageBox::StandardButton resBtn = QMessageBox::question( this, "APP_NAME",
+																tr("Are you sure?\n"),
+																QMessageBox::No | QMessageBox::Yes,
+																QMessageBox::Yes);
+	if (resBtn != QMessageBox::Yes) {
+		event->ignore();
+	} else {
+		event->accept();
+	}
 }
 QTableWidgetItem* MainWindow::newItem(const QString& s){
 	QTableWidgetItem* item = new QTableWidgetItem;

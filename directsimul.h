@@ -18,6 +18,7 @@ private slots:
 private:
 	double distance_to_do;
 	int refresh_time;
+	double total_distance;
 };
 
 #endif // DIRECTSIMUL_H

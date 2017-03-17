@@ -36,6 +36,7 @@ private:
 	QTableWidgetItem* newItem(const QString& s);
 	QString saving_as_window();
 	int scan_table_points(double pointToScan);
+	void closeEvent(QCloseEvent *event);
 };
 
 #endif // MAINWINDOW_H

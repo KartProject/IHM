@@ -24,12 +24,12 @@ int main(int argc, char *argv[])
 	splash->show();
 
 	splash->showStatusMessage(QObject::tr("Initialisation…"),color);
-	QThread::sleep(3);
+	QThread::sleep(1);
 
 	/* Some code here */
 
 	splash->showStatusMessage(QObject::tr("Connexion avec le Karting…"),color);
-	QThread::sleep(3);
+	QThread::sleep(1);
 
 	main_win->show();
 	splash->close();
