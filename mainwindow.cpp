@@ -82,7 +82,7 @@ void MainWindow::popupInvocDirectSimul(){
 	popupDirectSimul->setWindowFlags(Qt::Window);
 	popupDirectSimul->show();
 }
-int MainWindow::scan_table_points(double pointToScan){
+int MainWindow::scanTablePoints(double pointToScan){
 	QList<QTableWidgetItem *> ItemList = measures->findItems(QString("%1").arg(pointToScan), Qt::MatchExactly);
 	if(ItemList.count()){
 		int index;
@@ -119,7 +119,7 @@ void MainWindow::addPoint(){
 	if(point->value() > distance->value()){
 		QMessageBox::warning(this, "Attention!", "Attention! Le point kilométrique ne sera pas pris en compte, augmentez donc la distance du parcours");
 	}
-	int actionToDo = scan_table_points((double)point->value());
+	int actionToDo = scanTablePoints((double)point->value());
 	if(actionToDo){
 		Qt::SortOrder the_order = measures->horizontalHeader()->sortIndicatorOrder();
 		int the_column = measures->horizontalHeader()->sortIndicatorSection();

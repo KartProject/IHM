@@ -39,7 +39,7 @@ private:
 	void reinitLabelProcess();
 	QTableWidgetItem* newItem(const QString& s);
 	QString savingAsWindow();
-	int scan_table_points(double pointToScan);
+	int scanTablePoints(double pointToScan);
 	void closeEvent(QCloseEvent *event);
 	QFile file_opened;
 };
