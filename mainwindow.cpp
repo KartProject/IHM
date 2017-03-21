@@ -163,7 +163,7 @@ QString MainWindow::saving_as_window(){
 	);
 	return fichier;
 }
-void MainWindow::saving_as(){
+void MainWindow::savingAs(){
 	QString filename = saving_as_window();
 	QFile file( filename );
 	if ( file.open(QIODevice::ReadWrite) ){
@@ -195,12 +195,12 @@ void MainWindow::saving(){
 	}
 	setWindowTitle("MAJENI - Karting Simulator");
 }
-void MainWindow::start_measuring(){
+void MainWindow::startMeasuring(){
 	QTimer::singleShot(2000, this, SLOT(verify_measure()));
 	taches_progress = 1;
 	progressLabel->setText(QString::number(taches_progress) + "/" + QString::number(1*2) + " Envoi des données...");
 }
-void MainWindow::verify_measure(){
+void MainWindow::verifyMeasure(){
 	if(round((double)((50.0/1.0)+progressBar->value())) > 100){
 		progressBar->setValue(100);
 		progressLabel->setText("Appuyez sur \"Démarer\" pour lancer la simulation");

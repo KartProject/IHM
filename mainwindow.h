@@ -20,10 +20,10 @@ public slots:
 	void changeUnitGradientDeg();
 	void changeUnitGradientRad();
 	void changeUnitGradientPourc();
-	void start_measuring();
-	void verify_measure();
+	void startMeasuring();
+	void verifyMeasure();
 	void saving();
-	void saving_as();
+	void savingAs();
 	void addPoint();
 	void erasePoint();
 	void openFile();
