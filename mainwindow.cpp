@@ -155,7 +155,7 @@ void MainWindow::addPoint(){
 void MainWindow::reinitLabelProcess(){
 	progressLabel->setText("Appuyez sur \"Démarer\" pour lancer la simulation");
 }
-QString MainWindow::saving_as_window(){
+QString MainWindow::savingAsWindow(){
 	QString fichier = QFileDialog::getSaveFileName(this,
 		tr("Enregistrer Sous..."),
 		QDir::homePath(),
@@ -164,7 +164,7 @@ QString MainWindow::saving_as_window(){
 	return fichier;
 }
 void MainWindow::savingAs(){
-	QString filename = saving_as_window();
+	QString filename = savingAsWindow();
 	QFile file( filename );
 	if ( file.open(QIODevice::ReadWrite) ){
 		QTextStream stream( &file );
@@ -182,7 +182,7 @@ void MainWindow::savingAs(){
 }
 void MainWindow::saving(){
 	if(!saved){
-		QString filename = saving_as_window();
+		QString filename = savingAsWindow();
 		saved = 1;
 		QFile file( filename );
 		if ( file.open(QIODevice::ReadWrite) ){
