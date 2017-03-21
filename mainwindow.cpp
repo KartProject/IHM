@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	initTable();
 	connect(show_bdd_button, SIGNAL(clicked()), this, SLOT(popupInvoc()));
 	connect(simulation, SIGNAL(clicked()), this, SLOT(popupInvocDirectSimul()));
-	connect(start_measures, SIGNAL(clicked()), this, SLOT(start_measuring()));
+	connect(start_measures, SIGNAL(clicked()), this, SLOT(startMeasuring()));
 	connect(gradient_slide, SIGNAL(sliderReleased()), this, SLOT(gradientDialModify()));
 	connect(gradient_slide, SIGNAL(sliderMoved(int)), this, SLOT(gradientDialModify()));
 	connect(gradient_spin_box, SIGNAL(valueChanged(double)), this, SLOT(gradientLineModify()));

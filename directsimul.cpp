@@ -8,10 +8,10 @@ DirectSimul::DirectSimul(QWidget *parent) :
 	distance_to_do = 0;
 	total_distance = 0;
 	refresh_time = 0;
-	connect(start, SIGNAL(clicked()), this, SLOT(start_measures()));
+	connect(start, SIGNAL(clicked()), this, SLOT(startMeasures()));
 	//connect()
 }
-void DirectSimul::start_measures(){
+void DirectSimul::startMeasures(){
 	if(start->isEnabled()){
 		calculation();
 	}

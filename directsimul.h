@@ -12,7 +12,7 @@ public:
 
 private slots:
 	void calculation();
-	void start_measures();
+	void startMeasures();
 	void refreshState();
 
 private:
