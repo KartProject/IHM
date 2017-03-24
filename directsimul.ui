@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Simulateur temps réel</string>
   </property>
   <widget class="QProgressBar" name="progressBar">
    <property name="geometry">
@@ -45,7 +45,7 @@
   <widget class="QDoubleSpinBox" name="distance">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>300</x>
      <y>10</y>
      <width>80</width>
      <height>22</height>
@@ -64,21 +64,24 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>189</x>
      <y>10</y>
-     <width>100</width>
+     <width>111</width>
      <height>22</height>
     </rect>
    </property>
    <property name="text">
-    <string>Distance à parcourir</string>
+    <string>Distance à parcourir :</string>
+   </property>
+   <property name="buddy">
+    <cstring>distance</cstring>
    </property>
   </widget>
   <widget class="QDoubleSpinBox" name="gradiant">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>60</y>
+     <x>90</x>
+     <y>10</y>
      <width>62</width>
      <height>22</height>
     </rect>
@@ -87,21 +90,24 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>40</y>
+     <x>50</x>
+     <y>10</y>
      <width>47</width>
-     <height>13</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="text">
-    <string>Pente</string>
+    <string>Pente :</string>
+   </property>
+   <property name="buddy">
+    <cstring>gradiant</cstring>
    </property>
   </widget>
   <widget class="QSlider" name="slider">
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>50</y>
+     <y>40</y>
      <width>160</width>
      <height>22</height>
     </rect>
@@ -128,8 +134,8 @@
   <widget class="QPushButton" name="start">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>10</y>
+     <x>50</x>
+     <y>50</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -154,27 +160,27 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>70</y>
+     <x>220</x>
+     <y>60</y>
      <width>47</width>
-     <height>13</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>0</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>70</y>
+     <x>330</x>
+     <y>60</y>
      <width>47</width>
-     <height>13</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>0</string>
    </property>
   </widget>
  </widget>
