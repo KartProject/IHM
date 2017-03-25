@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(gradient_pourcent,SIGNAL(clicked()),this,SLOT(changeUnitGradientPourc()));
 	connect(gradient_radian,SIGNAL(clicked()),this,SLOT(changeUnitGradientRad()));
 	connect(save,SIGNAL(triggered()),this,SLOT(saving()));
-	connect(save_as,SIGNAL(triggered()),this,SLOT(saving_as()));
+	connect(save_as,SIGNAL(triggered()),this,SLOT(savingAs()));
 	connect(add_point,SIGNAL(clicked()),this,SLOT(addPoint()));
 	connect(erase_point, SIGNAL(clicked()), this, SLOT(erasePoint()));
 	connect(open, SIGNAL(triggered()), this, SLOT(openFile()));
