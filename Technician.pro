@@ -28,15 +28,15 @@ SOURCES += main.cpp\
     customsplashscreen.cpp \
     directsimul.cpp \
     interfacebasededonnees.cpp \
-    interfacemodbus.cpp
+    interfaceresults.cpp
 
 HEADERS  += mainwindow.h \
     customsplashscreen.h \
     directsimul.h \
     interfacebasededonnees.h \
-    interfacemodbus.h
+    interfaceresults.h
 
 FORMS    += mainwindow.ui \
     directsimul.ui \
     interfacebasededonnees.ui \
-    interfacemodbus.ui
+    interfaceresults.ui

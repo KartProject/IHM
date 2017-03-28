@@ -2,8 +2,8 @@
  <author/>
  <comment/>
  <exportmacro/>
- <class>InterfaceModbus</class>
- <widget class="QWidget" name="InterfaceModbus">
+ <class>InterfaceResults</class>
+ <widget class="QWidget" name="InterfaceResults">
   <property name="geometry">
    <rect>
     <x>0</x>
