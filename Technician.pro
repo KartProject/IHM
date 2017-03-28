@@ -25,15 +25,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    basededonnee.cpp \
     customsplashscreen.cpp \
-    directsimul.cpp
+    directsimul.cpp \
+    interfacebasededonnees.cpp \
+    interfacemodbus.cpp
 
 HEADERS  += mainwindow.h \
-    basededonnee.h \
     customsplashscreen.h \
-    directsimul.h
+    directsimul.h \
+    interfacebasededonnees.h \
+    interfacemodbus.h
 
 FORMS    += mainwindow.ui \
-    basededonnee.ui \
-    directsimul.ui
+    directsimul.ui \
+    interfacebasededonnees.ui \
+    interfacemodbus.ui
