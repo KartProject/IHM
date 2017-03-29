@@ -3,6 +3,9 @@
 #define MAINWINDOW_H
 
 #include "ui_mainwindow.h"
+#include "interfaceresults.h"
+#include "interfacedatabase.h"
+#include "directsimul.h"
 
 class MainWindow : public QMainWindow, private Ui::MainWindow
 {
@@ -13,8 +16,11 @@ public:
 	/*void paintEvent(QPaintEvent *);*/
 
 public slots:
-	void popupInvoc();
-	void popupInvocDirectSimul();
+	//Windows
+	void callDatabase();
+	void callResults();
+	void callDirectSimul();
+	//Synchronize
 	void gradientDialModify();
 	void gradientLineModify();
 	void changeUnitGradientDeg();
@@ -42,6 +48,9 @@ private:
 	int scanTablePoints(double pointToScan);
 	void closeEvent(QCloseEvent *event);
 	QFile file_opened;
+	InterfaceDataBase db_window;
+	InterfaceResults results_window;
+	DirectSimul simul_window;
 };
 
 #endif // MAINWINDOW_H

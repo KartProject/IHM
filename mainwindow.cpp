@@ -1,16 +1,14 @@
 #include "mainwindow.h"
-#include "basededonnee.h"
 #include "directsimul.h"
 #include <QtWidgets>
 #include <QRect>
 #include <cmath>
 #include <QCloseEvent>
 #include <QFile>
-#include "processing.h"
 #ifdef Q_OS_WIN
 #include <windows.h> // for Sleep
 #endif
-
+#include "interfacedatabase.h"
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent)
@@ -21,8 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	//file:///C:/Users/Tentyfire/Desktop/kart.ico
 	setupUi(this);
 	initTable();
-	connect(show_bdd_button, SIGNAL(clicked()), this, SLOT(popupInvoc()));
-	connect(simulation, SIGNAL(clicked()), this, SLOT(popupInvocDirectSimul()));
+	connect(show_bdd_button, SIGNAL(clicked()), this, SLOT(callDatabase()));
+	connect(simulation, SIGNAL(clicked()), this, SLOT(callResults()));
 	connect(start_measures, SIGNAL(clicked()), this, SLOT(startMeasuring()));
 	connect(gradient_slide, SIGNAL(sliderReleased()), this, SLOT(gradientDialModify()));
 	connect(gradient_slide, SIGNAL(sliderMoved(int)), this, SLOT(gradientDialModify()));
@@ -41,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	/*QPaintEvent e(QRect(5,5,500,500));
 	paintEvent(&e);*/
 }
+
 void MainWindow::closeEvent(QCloseEvent *event) {
 	QMessageBox::StandardButton resBtn = QMessageBox::question( this, "Quitter?",
 																tr("Êtes-vous sûr de vouloir quitter?\n"),
@@ -77,10 +76,13 @@ QTableWidgetItem* MainWindow::newItem(const QString& s){
 	item->setData(Qt::DisplayRole, s.toDouble());
 	return item;
 }
-void MainWindow::popupInvocDirectSimul(){
-	DirectSimul *popupDirectSimul = new DirectSimul(this);
-	popupDirectSimul->setWindowFlags(Qt::Window);
-	popupDirectSimul->show();
+void MainWindow::callResults(){
+	results_window.setWindowFlags(Qt::Window);
+	results_window.show();
+}
+void MainWindow::callDirectSimul(){
+	results_window.setWindowFlags(Qt::Window);
+	results_window.show();
 }
 int MainWindow::scanTablePoints(double pointToScan){
 	QList<QTableWidgetItem *> ItemList = measures->findItems(QString("%1").arg(pointToScan), Qt::MatchExactly);
@@ -327,10 +329,9 @@ void MainWindow::erasePoint(){
 	int spanAngle = 120 * 16;
 }*/
 
-void MainWindow::popupInvoc(){
-	BaseDeDonnee *popup = new BaseDeDonnee(this);
-	popup->setWindowFlags(Qt::Window);
-	popup->show();
+void MainWindow::callDatabase(){
+	db_window.setWindowFlags(Qt::Window);
+	db_window.show();
 }
 void MainWindow::gradientDialModify(){
 	double divide_spin;
@@ -393,7 +394,6 @@ void MainWindow::changeUnitGradientDeg(){
 			gradient_spin_box->setRange(-range,range);
 			gradient_slide->setRange(-900, 900);
 		}
-		//gradient_slide->setValue(round((((double)(gradient_spin_box->value()))*(180.0/M_PI))));
 	}
 }
 void MainWindow::changeUnitGradientPourc(){

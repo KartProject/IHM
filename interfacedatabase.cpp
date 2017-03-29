@@ -1,13 +1,13 @@
-#include "interfaceresults.h"
+#include "interfacedatabase.h"
 #include <QCloseEvent>
 #include <QtWidgets>
 
-InterfaceResults::InterfaceResults(QWidget *parent) :
+InterfaceDataBase::InterfaceDataBase(QWidget *parent) :
 	QWidget(parent)
 {
 	setupUi(this);
 }
-void InterfaceResults::closeEvent(QCloseEvent *event) {
+void InterfaceDataBase::closeEvent(QCloseEvent *event) {
 	QMessageBox::StandardButton resBtn = QMessageBox::question( this, "Quitter?",
 																tr("Êtes-vous sûr de vouloir quitter?\n"),
 																QMessageBox::No | QMessageBox::Yes,

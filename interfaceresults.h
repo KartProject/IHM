@@ -9,6 +9,9 @@ class InterfaceResults : public QWidget, private Ui::InterfaceResults
 
 public:
 	explicit InterfaceResults(QWidget *parent = 0);
+
+private:
+	void closeEvent(QCloseEvent *event);
 };
 
 #endif // INTERFACERESULTS_H

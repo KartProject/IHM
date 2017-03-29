@@ -27,16 +27,16 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     customsplashscreen.cpp \
     directsimul.cpp \
-    interfacebasededonnees.cpp \
-    interfaceresults.cpp
+    interfaceresults.cpp \
+    interfacedatabase.cpp
 
 HEADERS  += mainwindow.h \
     customsplashscreen.h \
     directsimul.h \
-    interfacebasededonnees.h \
-    interfaceresults.h
+    interfaceresults.h \
+    interfacedatabase.h
 
 FORMS    += mainwindow.ui \
     directsimul.ui \
-    interfacebasededonnees.ui \
-    interfaceresults.ui
+    interfaceresults.ui \
+    interfacedatabase.ui
