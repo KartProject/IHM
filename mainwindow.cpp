@@ -20,7 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	setupUi(this);
 	initTable();
 	connect(show_bdd_button, SIGNAL(clicked()), this, SLOT(callDatabase()));
-	connect(simulation, SIGNAL(clicked()), this, SLOT(callResults()));
+	connect(simulation, SIGNAL(clicked()), this, SLOT(callDirectSimul()));
+	connect(results_button, SIGNAL(clicked()), this, SLOT(callResults()));
 	connect(start_measures, SIGNAL(clicked()), this, SLOT(startMeasuring()));
 	connect(gradient_slide, SIGNAL(sliderReleased()), this, SLOT(gradientDialModify()));
 	connect(gradient_slide, SIGNAL(sliderMoved(int)), this, SLOT(gradientDialModify()));
@@ -198,9 +199,10 @@ void MainWindow::saving(){
 	setWindowTitle("MAJENI - Karting Simulator");
 }
 void MainWindow::startMeasuring(){
-	QTimer::singleShot(2000, this, SLOT(verify_measure()));
+	/*QTimer::singleShot(2000, this, SLOT(verify_measure()));
 	taches_progress = 1;
-	progressLabel->setText(QString::number(taches_progress) + "/" + QString::number(1*2) + " Envoi des données...");
+	progressLabel->setText(QString::number(taches_progress) + "/" + QString::number(1*2) + " Envoi des données...");*/
+	results_button->setEnabled(true);
 }
 void MainWindow::verifyMeasure(){
 	if(round((double)((50.0/1.0)+progressBar->value())) > 100){

@@ -44,14 +44,14 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="close_button">
          <property name="text">
           <string>Fermer</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="put_in_db_button">
          <property name="minimumSize">
           <size>
            <width>170</width>
@@ -70,7 +70,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="export_button">
          <property name="text">
           <string>Exporter...</string>
          </property>
@@ -83,5 +83,22 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>close_button</sender>
+   <signal>clicked()</signal>
+   <receiver>InterfaceResults</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>309</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>195</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
