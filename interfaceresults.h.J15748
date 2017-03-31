@@ -9,12 +9,11 @@ class InterfaceResults : public QWidget, private Ui::InterfaceResults
 
 public:
 	explicit InterfaceResults(QWidget *parent = 0);
-	void addValue(QTableWidgetItem *new_gradient, QTableWidgetItem *new_km_point, QTableWidgetItem *new_voltage, QTableWidgetItem *new_couple, QTableWidgetItem *new_power);
+	void addValue(double new_gradient,double new_km_point);
 	QTableWidgetItem* newItem(const QString& s);
 
 private:
 	void closeEvent(QCloseEvent *event);
-	void initTable();
 };
 
 #endif // INTERFACERESULTS_H

@@ -9,7 +9,7 @@ class InterfaceResults : public QWidget, private Ui::InterfaceResults
 
 public:
 	explicit InterfaceResults(QWidget *parent = 0);
-	void addValue(QTableWidgetItem *new_gradient, QTableWidgetItem *new_km_point, QTableWidgetItem *new_voltage, QTableWidgetItem *new_couple, QTableWidgetItem *new_power);
+	void addValue(QTableWidgetItem *new_gradient,QTableWidgetItem *new_km_point);
 	QTableWidgetItem* newItem(const QString& s);
 
 private:

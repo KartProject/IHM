@@ -11,8 +11,11 @@
 #include "interfacedatabase.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-	QMainWindow(parent)
+	QMainWindow(parent),db_window(this),results_window(this),simul_window(this)
 {
+	simul_window.hide();
+	results_window.hide();
+	db_window.hide();
 	QIcon icone = QIcon();
 	icone.addFile("C:/Users/Tentyfire/Desktop/kart.ico");
 	setWindowIcon(icone);
@@ -40,7 +43,9 @@ MainWindow::MainWindow(QWidget *parent) :
 	/*QPaintEvent e(QRect(5,5,500,500));
 	paintEvent(&e);*/
 }
-
+void MainWindow::addPointToResults(){
+	results_window.addValue(newItem(QString("%1").arg(15)), newItem(QString("%1").arg(1)), newItem(QString("%1").arg(8)), newItem(QString("%1").arg(2)), newItem(QString("%1").arg(3)));
+}
 void MainWindow::closeEvent(QCloseEvent *event) {
 	QMessageBox::StandardButton resBtn = QMessageBox::question( this, "Quitter?",
 																tr("Êtes-vous sûr de vouloir quitter?\n"),
@@ -82,8 +87,8 @@ void MainWindow::callResults(){
 	results_window.show();
 }
 void MainWindow::callDirectSimul(){
-	results_window.setWindowFlags(Qt::Window);
-	results_window.show();
+	simul_window.setWindowFlags(Qt::Window);
+	simul_window.show();
 }
 int MainWindow::scanTablePoints(double pointToScan){
 	QList<QTableWidgetItem *> ItemList = measures->findItems(QString("%1").arg(pointToScan), Qt::MatchExactly);
@@ -199,13 +204,13 @@ void MainWindow::saving(){
 	setWindowTitle("MAJENI - Karting Simulator");
 }
 void MainWindow::startMeasuring(){
-	/*QTimer::singleShot(2000, this, SLOT(verify_measure()));
-	taches_progress = 1;
+	QTimer::singleShot(2000, this, SLOT(verifyMeasure()));
+	/*taches_progress = 1;
 	progressLabel->setText(QString::number(taches_progress) + "/" + QString::number(1*2) + " Envoi des données...");*/
 	results_button->setEnabled(true);
 }
 void MainWindow::verifyMeasure(){
-	if(round((double)((50.0/1.0)+progressBar->value())) > 100){
+	/*if(round((double)((50.0/1.0)+progressBar->value())) > 100){
 		progressBar->setValue(100);
 		progressLabel->setText("Appuyez sur \"Démarer\" pour lancer la simulation");
 	}
@@ -213,7 +218,7 @@ void MainWindow::verifyMeasure(){
 		progressBar->setValue(round((double)((double)taches_progress * ((double)50.0/1.0))));
 	}
 	if(progressBar->value() < 100){
-		QTimer::singleShot(2000, this, SLOT(verify_measure()));
+		QTimer::singleShot(2000, this, SLOT(verifyMeasure()));
 		taches_progress++;
 		if(taches_progress % 2 == 1){
 			progressLabel->setText(QString::number(taches_progress) + "/" + QString::number(1*2) + " Envoi des données...");
@@ -225,7 +230,8 @@ void MainWindow::verifyMeasure(){
 	else{
 		progressBar->reset();
 		progressLabel->setText("Appuyez sur \"Démarer\" pour lancer la simulation");
-	}
+	}*/
+	addPointToResults();
 }
 bool MainWindow::setPourcentageBar(int pourcent) //return "true" if success and "false" if error
 {

@@ -51,6 +51,9 @@ private:
 	InterfaceDataBase db_window;
 	InterfaceResults results_window;
 	DirectSimul simul_window;
+
+private slots:
+	void addPointToResults();
 };
 
 #endif // MAINWINDOW_H
